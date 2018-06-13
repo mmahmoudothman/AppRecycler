@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sendIntent=new Intent(MainActivity.this,MapsActivity.class);
+                Intent sendIntent=new Intent(MainActivity.this,Maps.class);
                 startActivity(sendIntent);
             }
         });
