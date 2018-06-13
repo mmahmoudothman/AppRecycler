@@ -123,7 +123,7 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback ,
 
 
             //show marker
-            mMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title("your position"));
+//            mMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title("your position"));
             //Animate camera to your position
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 15.0f));
         }
@@ -184,6 +184,7 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback ,
                 Intent markerIntent= new Intent(Maps.this,SendActivity.class);
                 markerIntent.putExtra("name",marker.getTitle());
                 startActivity(markerIntent);
+                finish();
             }
         });
 

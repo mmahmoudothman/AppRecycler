@@ -4,12 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="8dp"
-    android:padding="8dp"
+    android:layout_margin="16dp"
+    android:padding="16dp"
+    android:layout_marginBottom="8dp"
     android:background="@drawable/round_bg"
     android:elevation="8dp">
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,6 +21,8 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textStyle="bold"
             android:text="Name : "
             android:gravity="center_horizontal"
             android:layout_width="0dp"
@@ -31,15 +32,12 @@
 
 
         <TextView
+
             android:id="@+id/request_name"
             android:gravity="center_horizontal"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content" />
-
-
-
-
     </LinearLayout>
     <LinearLayout
         android:background="@drawable/round_bg"
@@ -48,6 +46,8 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textStyle="bold"
             android:text="Phone : "
             android:gravity="center_horizontal"
             android:layout_width="0dp"
@@ -57,16 +57,13 @@
 
 
         <TextView
+
             android:id="@+id/request_phone"
             android:gravity="center_horizontal"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content" />
-
-
-
-
-    </LinearLayout>
+ </LinearLayout>
     <LinearLayout
         android:layout_margin="8dp"
         android:background="@drawable/round_bg"
@@ -74,6 +71,8 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textStyle="bold"
             android:text="Office Name : "
             android:gravity="center_horizontal"
             android:layout_width="0dp"
@@ -88,10 +87,6 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content" />
-
-
-
-
     </LinearLayout>
     <LinearLayout
         android:layout_margin="8dp"
@@ -100,6 +95,8 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textStyle="bold"
             android:text="Type : "
             android:gravity="center_horizontal"
             android:layout_width="0dp"
@@ -114,18 +111,18 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content" />
-
-
-
-
     </LinearLayout>
     <LinearLayout
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textStyle="bold"
         android:layout_margin="8dp"
         android:background="@drawable/round_bg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textStyle="bold"
             android:text="Quantity : "
             android:gravity="center_horizontal"
             android:layout_width="0dp"
@@ -140,10 +137,6 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content" />
-
-
-
-
     </LinearLayout>
     </LinearLayout>
 

@@ -15,7 +15,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "1079443488727-tr0klm71k3u1ahe4ndk7c71ac7h0gk01.apps.googleusercontent.com",
+          "client_id": "1079443488727-su5i529j5q4kb9o7pelr7r4tf44j3rg1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.osos.apprecycler",
@@ -23,17 +23,13 @@
           }
         },
         {
-          "client_id": "1079443488727-s9cea7n02q11num97qbbtm2e62i5f8u8.apps.googleusercontent.com",
-          "client_type": 3
-        },
-        {
-          "client_id": "1079443488727-s9cea7n02q11num97qbbtm2e62i5f8u8.apps.googleusercontent.com",
+          "client_id": "1079443488727-6q9eo4q0us9si3s5u2l2qdt7dcurokok.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAVU6S0r93za6ODMGUEHTTW1QmXRE0yuK8"
+          "current_key": "AIzaSyCKbSGbBJFkFT8NfKRJmAFg7LqHdddKdEs"
         }
       ],
       "services": {
@@ -42,12 +38,7 @@
         },
         "appinvite_service": {
           "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1079443488727-s9cea7n02q11num97qbbtm2e62i5f8u8.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2

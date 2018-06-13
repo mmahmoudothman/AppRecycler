@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        FirebaseApp.initializeApp(this);
+//        FirebaseApp.initializeApp(this);
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
 

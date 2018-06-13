@@ -94,7 +94,7 @@ public class RequrestActivity extends AppCompatActivity {
                             Toast.makeText(RequrestActivity.this, " Submit success", Toast.LENGTH_LONG).show();
                             Intent mainIntent = new Intent(RequrestActivity.this, MainActivity.class);
                             startActivity(mainIntent);
-
+                            finish();
                             }
                             else {
                                 Toast.makeText(RequrestActivity.this, " Failed", Toast.LENGTH_LONG).show();
