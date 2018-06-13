@@ -75,16 +75,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-//
-//
-//        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-//
-//        if (progressBar != null) {
-//            progressBar.setVisibility(View.GONE);
-//        }
-
-
-
     }
 
     //sign out method

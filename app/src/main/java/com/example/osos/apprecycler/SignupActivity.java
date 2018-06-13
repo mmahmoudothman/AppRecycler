@@ -15,13 +15,19 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private EditText inputEmail, inputPassword;
+    private EditText inputEmail, inputPassword,inputName,inputPhone;
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +41,16 @@ public class SignupActivity extends AppCompatActivity {
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
+        inputName=(EditText) findViewById(R.id.name);
+        inputPhone=(EditText) findViewById(R.id.phone);
+
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
+
+
+
+
+
 
         btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,8 +70,13 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String email = inputEmail.getText().toString().trim();
+                final String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
+                final String name = inputName.getText().toString().trim();
+                final String phone = inputPhone.getText().toString().trim();
+
+
+
 
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
@@ -74,6 +93,21 @@ public class SignupActivity extends AppCompatActivity {
                     return;
                 }
 
+                if (TextUtils.isEmpty(name)) {
+                    Toast.makeText(getApplicationContext(), "Enter Your name!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(phone)) {
+                    Toast.makeText(getApplicationContext(), "Enter Your Phone!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (phone.length() != 11) {
+                    Toast.makeText(getApplicationContext(), "Phone too short, enter 11 Digits!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
                 progressBar.setVisibility(View.VISIBLE);
                 //create user
                 auth.createUserWithEmailAndPassword(email, password)
@@ -85,11 +119,17 @@ public class SignupActivity extends AppCompatActivity {
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
+
+
+                                FirebaseUser current_user = FirebaseAuth.getInstance().getCurrentUser();
+                                String uid = current_user.getUid();
+
                                 if (!task.isSuccessful()) {
+
                                     Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                                    RegUser(name,phone,uid);
                                     finish();
                                 }
                             }
@@ -97,6 +137,9 @@ public class SignupActivity extends AppCompatActivity {
 
             }
         });
+
+
+
     }
 
     @Override
@@ -104,4 +147,42 @@ public class SignupActivity extends AppCompatActivity {
         super.onResume();
         progressBar.setVisibility(View.GONE);
     }
+
+
+
+    void RegUser(String name,String phone,String uId){
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(uId);
+
+
+        HashMap<String, String> userRegist= new HashMap<String, String>();
+        userRegist.put("name", name);
+        userRegist.put("phone", phone);
+        userRegist.put("uid", uId);
+        userRegist.put("type", "customer");
+
+        mDatabase.setValue(userRegist).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+                if(task.isSuccessful()){
+
+                    Toast.makeText(SignupActivity.this, " User Register success", Toast.LENGTH_LONG).show();
+                    Intent mainIntent = new Intent(SignupActivity.this, MainActivity.class);
+                    startActivity(mainIntent);
+                    finish();
+
+                }
+                else {
+                    Toast.makeText(SignupActivity.this, " Failed", Toast.LENGTH_LONG).show();
+
+                }
+            }
+
+        });
+
+
+    }
+
+
 }
