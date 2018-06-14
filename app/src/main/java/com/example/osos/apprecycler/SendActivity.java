@@ -103,7 +103,7 @@ public class SendActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
                             Toast.makeText(SendActivity.this, " Submit success", Toast.LENGTH_LONG).show();
-                            Intent mainIntent = new Intent(SendActivity.this, MainActivity.class);
+                            Intent mainIntent = new Intent(SendActivity.this, AboutActivity.class);
                             startActivity(mainIntent);
                             finish();
 
